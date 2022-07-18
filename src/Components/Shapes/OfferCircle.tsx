@@ -39,22 +39,23 @@ export const OfferCircle: React.FC<OfferCircleProps> = () => {
 		<>
 			<Circle
 				style={{
-					opacity: progress,
 					left: width / 2 - CIRCLE_SIZE / 2,
 					top: height / 2 - CIRCLE_SIZE / 2,
+					opacity: progress,
 					transform: `scale(${scale}) translateY(${contentTranslation}px)`,
 				}}
-			/>
-			<AbsoluteFill
-				style={{
-					backgroundColor: 'rgb(0,0,0,0.7)',
-				}}
-			/>
+			>
+				<AbsoluteFill
+					style={{
+						backgroundColor: 'rgb(0,0,0,0.7)',
+					}}
+				/>
+			</Circle>
 		</>
 	);
 };
 
-const CIRCLE_SIZE = 500;
+const CIRCLE_SIZE = 200;
 const Circle = styled.div`
 	width: ${CIRCLE_SIZE}px;
 	height: ${CIRCLE_SIZE}px;
