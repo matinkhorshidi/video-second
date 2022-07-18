@@ -1,0 +1,45 @@
+{
+	"texts": {
+		"start_text": [
+			"IG STORIES FOR",
+			"Your Travel",
+			"JUST BUY IT",
+			"Unbeatable Holiday Deals! Exclusively With blue Bay Travel. Unbeatable Holiday Deals!"
+		],
+		"middle_text": [
+			{
+				"main": "Your ",
+				"secondary": "GUIDE",
+				"last": "Travel",
+				"button_text": "MORE"
+			}
+		],
+		"end_text": ["Save Up To", "60%", "OFF", "FIND OUT MORE", "RELAX"]
+	},
+	"footages": [
+		"1.mp4",
+		"2.mp4",
+		"3.mp4",
+		"4.mp4",
+		"5.mp4",
+		"6.mp4",
+		"7.mp4",
+		"8.mp4",
+		"9.mp4"
+	],
+	"footage_first": 3,
+	"footage_second": 8,
+	"footage_last": 1,
+	"colors": {
+		"main": "#F2CFDB",
+		"secondary": "#FCFFFA",
+		"third": "#E07EA7",
+		"main_text": "#ffff",
+		"secondary_text": "#000"
+	},
+	"fonts": {
+		"main_font": ["Cairo", "sans-serif"],
+		"secondary_font": ["Edu NSW ACT Foundation"],
+		"simple_font": ["Ubuntu"]
+	}
+}
