@@ -4,13 +4,15 @@
 			"IG STORIES FOR",
 			"Your Travel",
 			"JUST BUY IT",
-			"Unbeatable Holiday Deals! Exclusively With blue Bay Travel. Unbeatable Holiday Deals!"
+			"Unbeatable Holiday Deals! Exclusively With blue Bay Travel. Unbeatable Holiday Deals!",
+			"50"
 		],
 		"middle_text": [
 			{
 				"main": "Your ",
 				"secondary": "GUIDE",
 				"last": "Travel",
+				"details": "Unbeatable Holiday Deals! Exclusively With blue Bay Travel. Unbeatable Holiday Deals!",
 				"button_text": "MORE"
 			}
 		],
@@ -28,7 +30,7 @@
 		"9.mp4"
 	],
 	"footage_first": 3,
-	"footage_second": 8,
+	"footage_second": 0,
 	"footage_last": 1,
 	"colors": {
 		"main": "#F2CFDB",

@@ -7,9 +7,23 @@ import {Video} from 'remotion';
 import {AbsoluteFill, useVideoConfig} from 'remotion';
 import {SlideUpFromDown} from '../Effects/SlideUpFromDown';
 
-interface OfferCircleProps {}
-
-export const OfferCircle: React.FC<OfferCircleProps> = () => {
+interface OfferCircleProps {
+	texts: string[];
+	colors: {
+		main: string;
+		secondary: string;
+		third: string;
+		main_text: string;
+		secondary_text: string;
+	};
+	font: string[];
+	[key: string]: any; // 👈️ allows dynamic keys and values}
+}
+export const OfferCircle: React.FC<OfferCircleProps> = ({
+	texts,
+	colors,
+	font,
+}) => {
 	const frame = useCurrentFrame();
 	const {width, height, fps} = useVideoConfig();
 
@@ -39,17 +53,30 @@ export const OfferCircle: React.FC<OfferCircleProps> = () => {
 		<>
 			<Circle
 				style={{
-					left: width / 2 - CIRCLE_SIZE / 2,
-					top: height / 2 - CIRCLE_SIZE / 2,
 					opacity: progress,
-					transform: `scale(${scale}) translateY(${contentTranslation}px)`,
+					transform: `scale(${scale}) `,
 				}}
 			>
 				<AbsoluteFill
 					style={{
-						backgroundColor: 'rgb(0,0,0,0.7)',
+						backgroundColor: 'rgb(0,0,0,0.8)',
 					}}
 				/>
+				<div
+					style={{
+						fontSize: 50,
+						fontWeight: 'Bold',
+						textAlign: 'center',
+						position: 'inherit',
+						width: 200,
+						padding: 40,
+						color: colors.main_text,
+						fontFamily: font[0],
+					}}
+				>
+					<div style={{marginTop: -10}}>{texts[4]} % </div>
+					<div style={{marginTop: -40}}>OFF</div>
+				</div>
 			</Circle>
 		</>
 	);

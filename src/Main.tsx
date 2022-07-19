@@ -14,6 +14,7 @@ import {ContactUs} from './Components/ContactUs/ContactUs';
 import logoZebra from './input_data/logo_zebra_trans.png';
 import audio from './input_data/Sounds/ES_Back Bay - First Bassists.mp3';
 import {PartOne} from './Components/PartOne/PartOne';
+import {PartTwo} from './Components/PartTwo/PartTwo';
 
 interface MainProps {
 	footages: string[];
@@ -33,6 +34,7 @@ interface MainProps {
 			main: string;
 			secondary: string;
 			last: string;
+			details: string;
 			button_text: string;
 		}[];
 		end_text: string[];
@@ -81,28 +83,17 @@ export const Main: React.FC<MainProps> = ({
 			<Sequence from={180} name="SecondVideo">
 				{/* 👇 SecondVideo Wrapper for  Animation From Down */}
 				<SlideUpFromDown delay={0}>
-					<Video
-						src={require(`./input_data/Videos/${footages[footageSecond]}`)}
-						volume={0}
-						style={{
-							height: 1080,
-							width: 720,
-							objectFit: 'cover',
-							backgroundSize: 'cover',
-							filter: 'brightness(150%) contrast(120%)',
-						}}
+					<PartTwo
+						footages={footages}
+						footageSecond={footageSecond}
+						colors={colors}
+						texts={texts}
+						fonts={fonts}
 					/>
 				</SlideUpFromDown>
 				{/* 👇 SlideUpFromDown Colorized Devider for  Transition From Down */}
 			</Sequence>
-			<Sequence from={200} name="SecondPartTexts">
-				<SecondPartTexes
-					texts={texts.middle_text[0]}
-					textColors={colors}
-					fonts={fonts}
-				/>
-				<DeviderFromRight color={colors.main} />
-			</Sequence>
+
 			{/*  ✔️✔️✔️ PART Three */}
 			<Sequence from={330} name="LastPart">
 				<SlideFromRight>

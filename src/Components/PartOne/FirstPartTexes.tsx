@@ -65,8 +65,16 @@ export const FirstPartTexes: React.FC<FirstPartTexesProps> = ({
 			<Sequence from={50} name="Title">
 				<Subtitle texts={texts} colors={colors} font={fonts.main_font} />
 			</Sequence>
-			<Sequence from={50} name="Title">
-				<OfferCircle />
+			<Sequence from={65} name="Title">
+				<span
+					style={{
+						position: 'absolute',
+						right: 220,
+						top: 850,
+					}}
+				>
+					<OfferCircle texts={texts} colors={colors} font={fonts.main_font} />
+				</span>
 			</Sequence>
 		</>
 	);

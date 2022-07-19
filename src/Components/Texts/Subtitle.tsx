@@ -68,37 +68,35 @@ export const Subtitle: React.FC<SubtitleProps> = ({texts, colors, font}) => {
 					})}
 				</div>
 			</Sequence>
-			<Sequence from={30} name="MoreDet">
-				<span
+			<span
+				style={{
+					fontSize: 30,
+					fontWeight: 100,
+					textAlign: 'center',
+					position: 'absolute',
+					top: 650,
+					left: 90,
+					opacity,
+					color: colors.secondary_text,
+					fontFamily: font[0],
+				}}
+			>
+				<div
 					style={{
-						fontSize: 30,
+						fontSize: 25,
 						fontWeight: 100,
 						textAlign: 'center',
-						position: 'absolute',
-						top: 650,
-						left: 90,
+						position: 'inherit',
+						width: 540,
+						padding: 10,
 						opacity,
-						color: colors.secondary_text,
 						fontFamily: font[0],
+						backgroundColor: colors.main,
 					}}
 				>
-					<div
-						style={{
-							fontSize: 25,
-							fontWeight: 100,
-							textAlign: 'center',
-							position: 'inherit',
-							width: 540,
-							padding: 10,
-							opacity,
-							fontFamily: font[0],
-							backgroundColor: colors.main,
-						}}
-					>
-						{texts[3]}
-					</div>
-				</span>
-			</Sequence>
+					{texts[3]}
+				</div>
+			</span>
 		</>
 	);
 };
