@@ -1,4 +1,3 @@
-import {Video} from 'remotion';
 import {
 	interpolate,
 	spring,
@@ -6,9 +5,9 @@ import {
 	AbsoluteFill,
 	useCurrentFrame,
 	useVideoConfig,
+	Video,
 } from 'remotion';
 
-import styled from 'styled-components';
 import {Triangle} from '../Shapes/Triangle';
 import {FirstPartTexes} from './FirstPartTexes';
 
@@ -48,24 +47,15 @@ export const PartOne: React.FC<PartOneProps> = ({
 	fonts,
 }) => {
 	const frame = useCurrentFrame();
-	const {width, height, fps} = useVideoConfig();
+	const {fps} = useVideoConfig();
 
 	const UPSTART = 10;
 
 	const upAnimation = spring({
 		frame: frame - UPSTART,
 		fps: 100,
-		// Config: {
-		// 	damping: 200,
-		// },
 	});
-	const downAnimation = spring({
-		frame: frame - UPSTART,
-		fps,
-		// Config: {
-		// 	damping: 200,
-		// },
-	});
+
 	const TriangleTopleft = interpolate(upAnimation, [0, 1], [0, -1080], {
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',

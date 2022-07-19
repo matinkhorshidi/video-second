@@ -1,31 +1,23 @@
-import {interpolate} from 'remotion';
-import {spring} from 'remotion';
-import {useCurrentFrame} from 'remotion';
+import {useCurrentFrame, interpolate, spring} from 'remotion';
 import styled from 'styled-components';
-import {useState} from 'react';
-import {Video} from 'remotion';
+
 import {AbsoluteFill, useVideoConfig} from 'remotion';
-import {SlideUpFromDown} from '../Effects/SlideUpFromDown';
 
 interface OfferCircleProps {
-	texts: string[];
-	colors: {
-		main: string;
-		secondary: string;
-		third: string;
-		main_text: string;
-		secondary_text: string;
-	};
+	text: string;
+	color: string;
 	font: string[];
+	backColor?: string;
 	[key: string]: any; // 👈️ allows dynamic keys and values}
 }
 export const OfferCircle: React.FC<OfferCircleProps> = ({
-	texts,
-	colors,
+	text,
+	color,
 	font,
+	backColor,
 }) => {
 	const frame = useCurrentFrame();
-	const {width, height, fps} = useVideoConfig();
+	const {fps} = useVideoConfig();
 
 	const progress = spring({
 		frame: frame - 10,
@@ -35,19 +27,6 @@ export const OfferCircle: React.FC<OfferCircleProps> = ({
 		},
 	});
 	const scale = interpolate(progress, [0, 1], [0, 1]);
-
-	const UPSTART = 60;
-	const upAnimation = spring({
-		frame: frame - UPSTART,
-		fps,
-		config: {
-			damping: 200,
-		},
-	});
-	const contentTranslation = interpolate(upAnimation, [0, 1], [0, -100], {
-		extrapolateLeft: 'clamp',
-		extrapolateRight: 'clamp',
-	});
 
 	return (
 		<>
@@ -59,7 +38,7 @@ export const OfferCircle: React.FC<OfferCircleProps> = ({
 			>
 				<AbsoluteFill
 					style={{
-						backgroundColor: 'rgb(0,0,0,0.8)',
+						backgroundColor: backColor ? backColor : 'rgb(0,0,0,0.8)',
 					}}
 				/>
 				<div
@@ -70,11 +49,11 @@ export const OfferCircle: React.FC<OfferCircleProps> = ({
 						position: 'inherit',
 						width: 200,
 						padding: 40,
-						color: colors.main_text,
+						color,
 						fontFamily: font[0],
 					}}
 				>
-					<div style={{marginTop: -10}}>{texts[4]} % </div>
+					<div style={{marginTop: -10}}>{text} % </div>
 					<div style={{marginTop: -40}}>OFF</div>
 				</div>
 			</Circle>

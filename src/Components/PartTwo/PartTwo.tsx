@@ -1,14 +1,12 @@
-import {Video} from 'remotion';
 import {
 	interpolate,
 	spring,
 	Sequence,
 	AbsoluteFill,
 	useCurrentFrame,
-	useVideoConfig,
+	Video,
 } from 'remotion';
 
-import styled from 'styled-components';
 import {DeviderFromRight} from '../Effects/DeviderFromRight';
 import {Triangle} from '../Shapes/Triangle';
 import {SecPartTexes} from './SecPartTexes';
@@ -50,24 +48,14 @@ export const PartTwo: React.FC<PartTwoProps> = ({
 	fonts,
 }) => {
 	const frame = useCurrentFrame();
-	const {width, height, fps} = useVideoConfig();
 
 	const UPSTART = 10;
 
 	const upAnimation = spring({
 		frame: frame - UPSTART,
 		fps: 100,
-		// Config: {
-		// 	damping: 200,
-		// },
 	});
-	const downAnimation = spring({
-		frame: frame - UPSTART,
-		fps,
-		// Config: {
-		// 	damping: 200,
-		// },
-	});
+
 	const TriangleTopleft = interpolate(upAnimation, [0, 1], [0, -1080], {
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',

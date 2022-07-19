@@ -33,35 +33,7 @@ export const SecPartTexes: React.FC<SecPartTexesProps> = ({
 	fonts,
 }) => {
 	const frame = useCurrentFrame();
-	const {height, fps} = useVideoConfig();
 	const opacity = interpolate(frame, [0, 30], [0, 1]);
-	const LATESTART = 40;
-
-	const FromXAnimation = spring({
-		frame: frame - LATESTART,
-		fps,
-		config: {
-			damping: 200,
-		},
-	});
-	const contentTranslationFromRight = interpolate(
-		FromXAnimation,
-		[0, 1],
-		[0, -250],
-		{
-			extrapolateLeft: 'clamp',
-			extrapolateRight: 'clamp',
-		}
-	);
-	const contentTranslationFromLeft = interpolate(
-		FromXAnimation,
-		[0, 1],
-		[0, 750],
-		{
-			extrapolateLeft: 'clamp',
-			extrapolateRight: 'clamp',
-		}
-	);
 
 	return (
 		<>

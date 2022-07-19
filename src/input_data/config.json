@@ -16,7 +16,7 @@
 				"button_text": "MORE"
 			}
 		],
-		"end_text": ["Save Up To", "60%", "OFF", "FIND OUT MORE", "RELAX"]
+		"end_text": ["Visit US", "60", "OFF", "FIND OUT MORE", "RELAX"]
 	},
 	"footages": [
 		"1.mp4",
@@ -31,7 +31,7 @@
 	],
 	"footage_first": 3,
 	"footage_second": 0,
-	"footage_last": 1,
+	"footage_last": 6,
 	"colors": {
 		"main": "#F2CFDB",
 		"secondary": "#FCFFFA",

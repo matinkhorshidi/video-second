@@ -1,8 +1,3 @@
-import {useState} from 'react';
-import {Video} from 'remotion';
-import {AbsoluteFill, useVideoConfig} from 'remotion';
-import {SlideUpFromDown} from '../Effects/SlideUpFromDown';
-
 interface TriangleProps {
 	color: string;
 	TopRight?: boolean;
@@ -10,17 +5,6 @@ interface TriangleProps {
 	BottomLeft?: boolean;
 	BottomRight?: boolean;
 	size: number;
-	// Texts: string[];
-	// textColors: {
-	// 	main: string;
-	// 	third: string;
-	// 	main_text: string;
-	// 	secondary_text: string;
-	// };
-	// fonts: {main_font: string[]; secondary_font: string[]; simple_font: string[]};
-	// footageLast: number;
-	// footages: string[];
-	// [key: string]: any; // 👈️ allows dynamic keys and values
 }
 
 export const Triangle: React.FC<TriangleProps> = ({

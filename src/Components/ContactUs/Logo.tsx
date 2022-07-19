@@ -31,7 +31,7 @@ export const Logo: React.FC<LogoProps> = ({imageSrc}) => {
 			style={{
 				transform: `scale(${coverScale})`,
 				left: width / 2 - COVER_SIZE / 2,
-				top: height / 6 - 50,
+				top: height / 6 - 150,
 				position: 'absolute',
 				opacity: coverOpacity,
 			}}
@@ -49,7 +49,7 @@ export const Logo: React.FC<LogoProps> = ({imageSrc}) => {
 		</AbsoluteFill>
 	);
 };
-export const COVER_SIZE = 300;
+export const COVER_SIZE = 200;
 const Cover = styled.div`
 	width: ${COVER_SIZE}px;
 	height: ${COVER_SIZE}px;

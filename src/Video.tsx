@@ -1,8 +1,6 @@
 import {Composition} from 'remotion';
 import {Main} from './Main';
 
-// Each <Composition> is an entry in the sidebar!
-
 export const RemotionVideo: React.FC = () => {
 	const config = require('./input_data/config.json');
 
@@ -11,7 +9,7 @@ export const RemotionVideo: React.FC = () => {
 			<Composition
 				id="Main"
 				component={Main}
-				durationInFrames={500}
+				durationInFrames={450}
 				fps={30}
 				width={720}
 				height={1080}

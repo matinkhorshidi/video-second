@@ -1,13 +1,7 @@
-import {AbsoluteFill, Sequence, Video, Audio} from 'remotion';
+import {AbsoluteFill, Sequence, Audio} from 'remotion';
 import './input_data/Fonts/font.css';
 
-import {Intro} from './Components/Intro/Intro';
-import {FirstPartTexes} from './Components/PartOne/FirstPartTexes';
-import {SiteName} from './Components/Texts/SiteName';
-import {DeviderFromDown} from './Components/Effects/DeviderFromDown';
 import {SlideUpFromDown} from './Components/Effects/SlideUpFromDown';
-import {SecondPartTexes} from './Components/Texts/SecondPartTexes';
-import {DeviderFromRight} from './Components/Effects/DeviderFromRight';
 import {SlideFromRight} from './Components/Effects/SlideFromRight';
 import {Logo} from './Components/ContactUs/Logo';
 import {ContactUs} from './Components/ContactUs/ContactUs';
@@ -70,15 +64,6 @@ export const Main: React.FC<MainProps> = ({
 					fonts={fonts}
 				/>
 			</Sequence>
-
-			{/* <Sequence from={120} name="SiteName">
-				<SiteName
-					SiteAddress="www.zebracat.ai"
-					textColors={colors}
-					fonts={fonts}
-				/>
-				<DeviderFromDown color={colors.main} />
-			</Sequence> */}
 			{/*  ✔️✔️ PART TWO */}
 			<Sequence from={180} name="SecondVideo">
 				{/* 👇 SecondVideo Wrapper for  Animation From Down */}
@@ -99,7 +84,7 @@ export const Main: React.FC<MainProps> = ({
 				<SlideFromRight>
 					<ContactUs
 						texts={texts.end_text}
-						textColors={colors}
+						colors={colors}
 						fonts={fonts}
 						footageLast={footageLast}
 						footages={footages}

@@ -1,11 +1,17 @@
-import {useState} from 'react';
-import {Video} from 'remotion';
-import {AbsoluteFill, useVideoConfig} from 'remotion';
+import {interpolate} from 'remotion';
+import {spring} from 'remotion';
+import {useCurrentFrame} from 'remotion';
+import {Img} from 'remotion';
+import {AbsoluteFill, useVideoConfig, Video} from 'remotion';
+
 import {SlideUpFromDown} from '../Effects/SlideUpFromDown';
+import {OfferCircle} from '../Shapes/OfferCircle';
+import {SiteName} from '../Texts/SiteName';
+import illustrator from '../../input_data/Exploring-cuate.png';
 
 interface ContactUsProps {
 	texts: string[];
-	textColors: {
+	colors: {
 		main: string;
 		third: string;
 		main_text: string;
@@ -19,67 +25,74 @@ interface ContactUsProps {
 
 export const ContactUs: React.FC<ContactUsProps> = ({
 	texts,
-	textColors,
+	colors,
 	fonts,
 	footageLast,
 	footages,
 }) => {
-	const {height, width} = useVideoConfig();
-	const [colormat, setColormat] = useState(textColors.main_text);
+	const frame = useCurrentFrame();
+	const {width, height, fps} = useVideoConfig();
 
-	setInterval(() => {
-		if (colormat === textColors.third) {
-			setColormat(textColors.main_text);
-		} else {
-			setColormat(textColors.third);
-		}
-	}, 1500);
+	const progress = spring({
+		frame: frame - 10,
+		fps,
+		config: {
+			damping: 200,
+			mass: 0.5,
+		},
+	});
+
+	const coverOpacity = interpolate(progress, [0.7, 1], [0, 1]);
+	const coverScale = interpolate(progress, [0.6, 1], [0.7, 1]);
 
 	return (
-		<AbsoluteFill style={{backgroundColor: textColors.main_text}}>
+		<AbsoluteFill style={{backgroundColor: colors.main_text}}>
 			<Video
 				src={require(`../../input_data/Videos/${footages[footageLast]}`)}
 				volume={0}
 				style={{
-					height: 540,
+					height: 1080,
 					width: 720,
 					objectFit: 'cover',
 					backgroundSize: 'cover',
-					filter: 'brightness(100%) contrast(120%) opacity(0.5)',
+					filter: ' contrast(150%) opacity(0.8)',
 				}}
 			/>
+
 			<AbsoluteFill
 				style={{
-					border: `solid 5px ${textColors.main}`,
+					border: `solid 5px ${colors.main}`,
 					width: '90%',
-					height: '50%',
+					height: '95%',
 					position: 'absolute',
 					top: 20,
 					marginLeft: 'auto',
 					marginRight: 'auto',
 				}}
 			/>
+
 			<AbsoluteFill
 				style={{
-					backgroundColor: textColors.main,
-					border: `solid 5px ${textColors.main}`,
+					backgroundColor: colors.main,
+					border: `solid 5px ${colors.main}`,
 					width: '100%',
-					height: 540,
+					height: 515,
 					position: 'absolute',
-					top: 540,
+					top: 260,
 				}}
 			>
 				<AbsoluteFill
 					style={{
-						backgroundColor: textColors.main,
-						border: `solid 5px ${textColors.main_text}`,
+						backgroundColor: colors.main,
+						border: `solid 5px ${colors.main_text}`,
 						borderTop: '0',
+						borderBottom: '0',
 						width: '92%',
 						height: 510,
-						top: -5,
 						position: 'absolute',
 						marginLeft: 'auto',
 						marginRight: 'auto',
+						marginBottom: 0,
 					}}
 				>
 					<SlideUpFromDown delay={25}>
@@ -88,73 +101,52 @@ export const ContactUs: React.FC<ContactUsProps> = ({
 								fontSize: 70,
 								textAlign: 'center',
 								position: 'absolute',
-								top: height / 2 + 80,
-								left: width / 2 - 200,
-								color: textColors.secondary_text,
-								fontFamily: fonts.secondary_font[0],
+								top: height / 2,
+								left: width / 2 - 150,
+								color: colors.main_text,
+								fontFamily: fonts.main_font[0],
 								fontWeight: 'bold',
 							}}
 						>
 							{texts[0]}
 						</span>
-						<span
+					</SlideUpFromDown>
+					<AbsoluteFill
+						style={{
+							transform: `scale(${coverScale})`,
+							left: 130,
+							top: 50,
+							position: 'absolute',
+							opacity: coverOpacity,
+						}}
+					>
+						<Img
+							src={illustrator}
 							style={{
-								fontSize: 120,
-								textAlign: 'center',
-								position: 'absolute',
-								top: height / 2 + 150,
-								left: width / 2 - 240,
-								color: colormat,
-								fontFamily: fonts.main_font[0],
-							}}
-						>
-							{texts[1]}
-						</span>
-						<span
-							style={{
-								fontSize: 70,
-								textAlign: 'center',
-								position: 'absolute',
-								top: height / 1.5 + 50,
-								right: width / 2 - 150,
-								color: textColors.secondary_text,
-								fontFamily: fonts.secondary_font[0],
-								fontWeight: 'bold',
-							}}
-						>
-							{texts[2]}
-						</span>
-						<span
-							style={{
-								fontSize: 40,
-								textAlign: 'center',
-								position: 'absolute',
-								bottom: 50,
-								right: width / 2 - 150,
-								color: textColors.main_text,
-								fontFamily: fonts.secondary_font[0],
-								fontWeight: 'bold',
-								backgroundColor: textColors.third,
-								padding: 30,
-							}}
-						>
-							{texts[3]}
-						</span>
-						<span
-							style={{
-								position: 'absolute',
-								bottom: 10,
-								left: width / 2 - 120,
-								width: 0,
-								height: 0,
-								borderLeft: '80px solid transparent',
-								borderRight: '80px solid transparent',
-								borderTop: `50px solid ${textColors.third}`,
+								height: 400,
+								width: 400,
+								filter: 'brightness(100%) contrast(100%) ',
 							}}
 						/>
-					</SlideUpFromDown>
+					</AbsoluteFill>
+					<span
+						style={{
+							position: 'absolute',
+							left: -50,
+							top: 80,
+							transform: 'rotate(-30deg)',
+						}}
+					>
+						<OfferCircle
+							text={texts[1]}
+							backColor={colors.third + 'b0'}
+							color={colors.main_text}
+							font={fonts.main_font}
+						/>
+					</span>
 				</AbsoluteFill>
 			</AbsoluteFill>
+			<SiteName SiteAddress="www.zebracat.ai" colors={colors} fonts={fonts} />
 		</AbsoluteFill>
 	);
 };

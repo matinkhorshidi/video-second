@@ -1,13 +1,5 @@
-import {
-	interpolate,
-	spring,
-	Sequence,
-	AbsoluteFill,
-	useCurrentFrame,
-	useVideoConfig,
-} from 'remotion';
+import {Sequence} from 'remotion';
 
-import styled from 'styled-components';
 import {OfferCircle} from '../Shapes/OfferCircle';
 import {Subtitle} from '../Texts/Subtitle';
 import {Title} from '../Texts/Title';
@@ -30,31 +22,6 @@ export const FirstPartTexes: React.FC<FirstPartTexesProps> = ({
 	colors,
 	fonts,
 }) => {
-	const frame = useCurrentFrame();
-	const {width, height, fps} = useVideoConfig();
-
-	const progress = spring({
-		frame: frame - 10,
-		fps,
-		config: {
-			damping: 200,
-		},
-	});
-	const scale = interpolate(progress, [0, 1], [0, 1]);
-
-	const UPSTART = 60;
-	const upAnimation = spring({
-		frame: frame - UPSTART,
-		fps,
-		config: {
-			damping: 200,
-		},
-	});
-	const contentTranslation = interpolate(upAnimation, [0, 1], [0, -100], {
-		extrapolateLeft: 'clamp',
-		extrapolateRight: 'clamp',
-	});
-
 	return (
 		<>
 			<Sequence from={20} name="Title">
@@ -73,7 +40,11 @@ export const FirstPartTexes: React.FC<FirstPartTexesProps> = ({
 						top: 850,
 					}}
 				>
-					<OfferCircle texts={texts} colors={colors} font={fonts.main_font} />
+					<OfferCircle
+						text={texts[4]}
+						color={colors.main}
+						font={fonts.main_font}
+					/>
 				</span>
 			</Sequence>
 		</>
