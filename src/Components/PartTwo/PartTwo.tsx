@@ -1,3 +1,4 @@
+import {staticFile} from 'remotion';
 import {
 	interpolate,
 	spring,
@@ -65,8 +66,9 @@ export const PartTwo: React.FC<PartTwoProps> = ({
 	return (
 		<>
 			<Video
-				src={require(`../../input_data/Videos/${footages[footageSecond]}`)}
+				src={staticFile(`Videos/${footages[footageSecond]}`)}
 				volume={0}
+				endAt={140}
 				style={{
 					height: '100%',
 					width: '100%',

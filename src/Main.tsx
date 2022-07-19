@@ -75,12 +75,12 @@ export const Main: React.FC<MainProps> = ({
 						texts={texts}
 						fonts={fonts}
 					/>
+					{/* 👇 SlideUpFromDown Colorized Devider for  Transition From Down */}
 				</SlideUpFromDown>
-				{/* 👇 SlideUpFromDown Colorized Devider for  Transition From Down */}
 			</Sequence>
 
 			{/*  ✔️✔️✔️ PART Three */}
-			<Sequence from={330} name="LastPart">
+			<Sequence from={300} name="LastPart">
 				<SlideFromRight>
 					<ContactUs
 						texts={texts.end_text}

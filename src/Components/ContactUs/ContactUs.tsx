@@ -1,3 +1,4 @@
+import {staticFile} from 'remotion';
 import {interpolate} from 'remotion';
 import {spring} from 'remotion';
 import {useCurrentFrame} from 'remotion';
@@ -48,8 +49,9 @@ export const ContactUs: React.FC<ContactUsProps> = ({
 	return (
 		<AbsoluteFill style={{backgroundColor: colors.main_text}}>
 			<Video
-				src={require(`../../input_data/Videos/${footages[footageLast]}`)}
+				src={staticFile(`Videos/${footages[footageLast]}`)}
 				volume={0}
+				endAt={160}
 				style={{
 					height: 1080,
 					width: 720,
@@ -98,24 +100,33 @@ export const ContactUs: React.FC<ContactUsProps> = ({
 					<SlideUpFromDown delay={25}>
 						<span
 							style={{
-								fontSize: 70,
+								fontSize: 40,
 								textAlign: 'center',
 								position: 'absolute',
-								top: height / 2,
-								left: width / 2 - 150,
-								color: colors.main_text,
-								fontFamily: fonts.main_font[0],
-								fontWeight: 'bold',
+								top: 900,
+								left: 50,
+								color: colors.third,
 							}}
 						>
-							{texts[0]}
+							<div
+								style={{
+									textAlign: 'center',
+									position: 'inherit',
+									width: 540,
+									padding: 10,
+									fontWeight: 'bold',
+									fontFamily: fonts.main_font[0],
+								}}
+							>
+								{texts[0]}
+							</div>
 						</span>
 					</SlideUpFromDown>
 					<AbsoluteFill
 						style={{
 							transform: `scale(${coverScale})`,
-							left: 130,
-							top: 50,
+							left: 250,
+							top: 20,
 							position: 'absolute',
 							opacity: coverOpacity,
 						}}
@@ -123,8 +134,8 @@ export const ContactUs: React.FC<ContactUsProps> = ({
 						<Img
 							src={illustrator}
 							style={{
-								height: 400,
-								width: 400,
+								height: 300,
+								width: 300,
 								filter: 'brightness(100%) contrast(100%) ',
 							}}
 						/>

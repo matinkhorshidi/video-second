@@ -1,10 +1,10 @@
+import {staticFile} from 'remotion';
 import {
 	interpolate,
 	spring,
 	Sequence,
 	AbsoluteFill,
 	useCurrentFrame,
-	useVideoConfig,
 	Video,
 } from 'remotion';
 
@@ -47,7 +47,6 @@ export const PartOne: React.FC<PartOneProps> = ({
 	fonts,
 }) => {
 	const frame = useCurrentFrame();
-	const {fps} = useVideoConfig();
 
 	const UPSTART = 10;
 
@@ -64,6 +63,7 @@ export const PartOne: React.FC<PartOneProps> = ({
 
 	return (
 		<>
+			{/* 👇 Main BackGround */}
 			<AbsoluteFill
 				style={{
 					backgroundColor: colors.secondary,
@@ -72,8 +72,9 @@ export const PartOne: React.FC<PartOneProps> = ({
 				}}
 			/>
 			<Video
-				src={require(`../../input_data/Videos/${footages[footageFirst]}`)}
+				src={staticFile(`Videos/${footages[footageFirst]}`)}
 				volume={0}
+				endAt={190}
 				style={{
 					height: '100%',
 					width: '100%',
@@ -83,6 +84,7 @@ export const PartOne: React.FC<PartOneProps> = ({
 					padding: 30,
 				}}
 			/>
+			{/* 👇 BottomRight Triangle */}
 			<span
 				style={{
 					position: 'absolute',
@@ -93,6 +95,7 @@ export const PartOne: React.FC<PartOneProps> = ({
 			>
 				<Triangle BottomRight color={colors.secondary} size={800} />
 			</span>
+			{/* 👇 BottomLeft Triangle */}
 			<span
 				style={{
 					position: 'absolute',
@@ -104,6 +107,7 @@ export const PartOne: React.FC<PartOneProps> = ({
 				<Triangle TopLeft color={colors.secondary} size={1080} />
 			</span>
 			<Sequence from={20} name="Title">
+				{/* 👇 PartOne Texes Component */}
 				<FirstPartTexes
 					texts={texts.start_text}
 					colors={colors}

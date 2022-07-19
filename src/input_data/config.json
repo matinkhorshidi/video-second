@@ -1,9 +1,9 @@
 {
 	"texts": {
 		"start_text": [
-			"IG STORIES FOR",
-			"Your Travel",
-			"JUST BUY IT",
+			"Re-invent",
+			"The FUTURE",
+			"of Video Creation",
 			"Unbeatable Holiday Deals! Exclusively With blue Bay Travel. Unbeatable Holiday Deals!",
 			"50"
 		],
@@ -16,7 +16,13 @@
 				"button_text": "MORE"
 			}
 		],
-		"end_text": ["Visit US", "60", "OFF", "FIND OUT MORE", "RELAX"]
+		"end_text": [
+			"Video ads for products in all industries",
+			"60",
+			"OFF",
+			"FIND OUT MORE",
+			"RELAX"
+		]
 	},
 	"footages": [
 		"1.mp4",

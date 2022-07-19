@@ -41,11 +41,13 @@ export const SecPartTexes: React.FC<SecPartTexesProps> = ({
 				<AbsoluteFill
 					style={{
 						width: 300,
-						height: 500,
+						height: 550,
 						position: 'absolute',
 						top: 0,
 						left: 200,
-						backgroundColor: colors.main + 'b0',
+						backgroundImage: `linear-gradient(to bottom, ${
+							colors.third + 'FF'
+						},${colors.third + 'AB'}, ${colors.main + '57'})`,
 					}}
 				>
 					<div
@@ -56,6 +58,7 @@ export const SecPartTexes: React.FC<SecPartTexesProps> = ({
 							position: 'inherit',
 							width: 310,
 							padding: 10,
+							paddingTop: 65,
 							fontFamily: fonts.main_font[0],
 						}}
 					>
