@@ -6,9 +6,9 @@ import {SlideFromRight} from './Components/Effects/SlideFromRight';
 import {Logo} from './Components/ContactUs/Logo';
 import {ContactUs} from './Components/ContactUs/ContactUs';
 import logoZebra from './input_data/logo_zebra_trans.png';
-import audio from './input_data/Sounds/ES_Back Bay - First Bassists.mp3';
 import {PartOne} from './Components/PartOne/PartOne';
 import {PartTwo} from './Components/PartTwo/PartTwo';
+import audio from './input_data/Sounds/ES_Havana - BLUE STEEL.mp3';
 
 interface MainProps {
 	footages: string[];
