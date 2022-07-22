@@ -1,11 +1,4 @@
-import {
-	AbsoluteFill,
-	interpolate,
-	spring,
-	useCurrentFrame,
-	useVideoConfig,
-} from 'remotion';
-import {SlideUpFromDown} from '../Effects/SlideUpFromDown';
+import {AbsoluteFill, interpolate, useCurrentFrame} from 'remotion';
 import {SlideUpFromTop} from '../Effects/SlideUpFromTop';
 
 interface SecPartTexesProps {
@@ -37,7 +30,7 @@ export const SecPartTexes: React.FC<SecPartTexesProps> = ({
 
 	return (
 		<>
-			<SlideUpFromTop delay={0}>
+			<SlideUpFromTop delay={20}>
 				<AbsoluteFill
 					style={{
 						width: 300,

@@ -35,8 +35,8 @@
 		"8.mp4",
 		"9.mp4"
 	],
-	"footage_first": 3,
-	"footage_second": 0,
+	"footage_first": 1,
+	"footage_second": 4,
 	"footage_last": 6,
 	"colors": {
 		"main": "#F2CFDB",

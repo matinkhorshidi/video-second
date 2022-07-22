@@ -7,6 +7,7 @@ import {
 	useCurrentFrame,
 	Video,
 } from 'remotion';
+import {TransitionOut} from '../Effects/TransitionOut';
 
 import {Triangle} from '../Shapes/Triangle';
 import {FirstPartTexes} from './FirstPartTexes';
@@ -74,7 +75,6 @@ export const PartOne: React.FC<PartOneProps> = ({
 			<Video
 				src={staticFile(`Videos/${footages[footageFirst]}`)}
 				volume={0}
-				endAt={190}
 				style={{
 					height: '100%',
 					width: '100%',
@@ -84,6 +84,7 @@ export const PartOne: React.FC<PartOneProps> = ({
 					padding: 30,
 				}}
 			/>
+			{/* 👇 Transition In */}
 			{/* 👇 BottomRight Triangle */}
 			<span
 				style={{
@@ -106,14 +107,12 @@ export const PartOne: React.FC<PartOneProps> = ({
 			>
 				<Triangle TopLeft color={colors.secondary} size={1080} />
 			</span>
-			<Sequence from={20} name="Title">
-				{/* 👇 PartOne Texes Component */}
-				<FirstPartTexes
-					texts={texts.start_text}
-					colors={colors}
-					fonts={fonts}
-				/>
-			</Sequence>
+
+			{/* 👇 PartOne Texes Component */}
+			<FirstPartTexes texts={texts.start_text} colors={colors} fonts={fonts} />
+			<span>
+				<TransitionOut delay={140} color={colors.secondary} />
+			</span>
 		</>
 	);
 };

@@ -9,6 +9,8 @@ import {
 } from 'remotion';
 
 import {DeviderFromRight} from '../Effects/DeviderFromRight';
+import {SlideUpFromDown} from '../Effects/SlideUpFromDown';
+import {Transition} from '../Effects/Transition';
 import {Triangle} from '../Shapes/Triangle';
 import {SecPartTexes} from './SecPartTexes';
 
@@ -48,33 +50,18 @@ export const PartTwo: React.FC<PartTwoProps> = ({
 	texts,
 	fonts,
 }) => {
-	const frame = useCurrentFrame();
-
-	const UPSTART = 10;
-
-	const upAnimation = spring({
-		frame: frame - UPSTART,
-		fps: 100,
-	});
-
-	const TriangleTopleft = interpolate(upAnimation, [0, 1], [0, -1080], {
-		extrapolateLeft: 'clamp',
-		extrapolateRight: 'clamp',
-	});
-	const TriangleBottomRight = interpolate(upAnimation, [0, 1], [0, 2000]);
-
 	return (
 		<>
+			{/* <SlideUpFromDown delay={0}> */}
 			<Video
 				src={staticFile(`Videos/${footages[footageSecond]}`)}
 				volume={0}
-				endAt={140}
 				style={{
 					height: '100%',
 					width: '100%',
 					objectFit: 'cover',
 					backgroundSize: 'cover',
-					filter: 'brightness(50%) contrast(120%)',
+					// Filter: 'brightness(50%) contrast(120%)',
 				}}
 			/>
 			<AbsoluteFill
@@ -107,30 +94,13 @@ export const PartTwo: React.FC<PartTwoProps> = ({
 					/>
 				</AbsoluteFill>
 			</AbsoluteFill>
-			<span
-				style={{
-					position: 'absolute',
-					top: 500,
-					right: 0,
-					transform: `translateY(${TriangleBottomRight}px) translateX(${TriangleBottomRight}px)`,
-				}}
-			>
-				<Triangle BottomRight color={colors.secondary} size={800} />
-			</span>
-			<span
-				style={{
-					position: 'absolute',
-					top: 1080,
-					left: 0,
-					transform: `translateY(${TriangleTopleft}px) translateX(${TriangleTopleft}px)`,
-				}}
-			>
-				<Triangle TopLeft color={colors.secondary} size={1080} />
-			</span>
-			<Sequence from={20} name="Title">
-				<SecPartTexes texts={texts.middle_text} colors={colors} fonts={fonts} />
-				<DeviderFromRight color={colors.main} />
-			</Sequence>
+
+			{/* <Sequence from={20} name="Title"> */}
+			<SecPartTexes texts={texts.middle_text} colors={colors} fonts={fonts} />
+			<DeviderFromRight color={colors.main} />
+			{/* </Sequence> */}
+			{/* </SlideUpFromDown> */}
+			<Transition type="in" color={colors.secondary} />
 		</>
 	);
 };

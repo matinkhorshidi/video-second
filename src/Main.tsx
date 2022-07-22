@@ -54,7 +54,7 @@ export const Main: React.FC<MainProps> = ({
 		<AbsoluteFill style={{backgroundColor: colors.main}}>
 			{/* 👇 Intro Component that Open a first Scene */}
 			{/*  ✔️ PART One */}
-			<Sequence from={0} name="PartOne">
+			<Sequence from={0} durationInFrames={165} name="PartOne">
 				{/* 👇 BackGround Video */}
 				<PartOne
 					footages={footages}
@@ -65,32 +65,25 @@ export const Main: React.FC<MainProps> = ({
 				/>
 			</Sequence>
 			{/*  ✔️✔️ PART TWO */}
-			<Sequence from={180} name="SecondVideo">
-				{/* 👇 SecondVideo Wrapper for  Animation From Down */}
-				<SlideUpFromDown delay={0}>
-					<PartTwo
-						footages={footages}
-						footageSecond={footageSecond}
-						colors={colors}
-						texts={texts}
-						fonts={fonts}
-					/>
-					{/* 👇 SlideUpFromDown Colorized Devider for  Transition From Down */}
-				</SlideUpFromDown>
+			<Sequence from={165} durationInFrames={160} name="SecondVideo">
+				<PartTwo
+					footages={footages}
+					footageSecond={footageSecond}
+					colors={colors}
+					texts={texts}
+					fonts={fonts}
+				/>
 			</Sequence>
-
 			{/*  ✔️✔️✔️ PART Three */}
-			<Sequence from={300} name="LastPart">
-				<SlideFromRight>
-					<ContactUs
-						texts={texts.end_text}
-						colors={colors}
-						fonts={fonts}
-						footageLast={footageLast}
-						footages={footages}
-					/>
-					<Logo imageSrc={logoZebra} />
-				</SlideFromRight>
+			<Sequence from={300} durationInFrames={150} name="LastPart">
+				<ContactUs
+					texts={texts.end_text}
+					colors={colors}
+					fonts={fonts}
+					footageLast={footageLast}
+					footages={footages}
+				/>
+				<Logo imageSrc={logoZebra} />
 			</Sequence>
 			{/* 👇 Audio File */}
 			<Audio src={audio} startFrom={0} />
